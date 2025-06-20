@@ -1,0 +1,69 @@
+nodemone zayada tar dev dependency me use hota hai.
+
+app.use --> tab use krte hai jb middleware ya configuration setup krna ho!
+
+
+cors --> api fetching ke time use me ata hai iski help se frontend ko allow krte hai for fetching api from some routes.
+cors backend me use hota hai or agr app backend pe is trha se cors lgta te ho.
+
+const cors = require('cors');
+app.use(cors());
+
+to backend sab ko allow krega, or agr aap specially kisi particular ko allow krana chate ho to use this 
+
+app.use(cors({
+  origin: 'http://localhost:3000', // only allow this frontend
+  credentials: true
+}));
+
+
+
+ab cors ke ander bhot sari prpperty define kr sakte hai hum jese ki 
+cors({
+  origin --> frontend me se kha se mtlb konse routes se req a rhi hai backend pe, yha pe wo route setup krna hota hai , like vercel, netlify , localhost...etc 
+})
+
+
+
+Morgan --> Morgan is an HTTP request logger middleware for Node.js.
+Every time a request hits your server (GET, POST, etc.), Morgan logs details like:
+    Request method
+    URL
+    Response status
+    Response time
+🛠️ Useful for:
+    Debugging
+    Monitoring traffic
+    Seeing API usage in real-time
+
+middlewares --> check lgane ke kaam ata hai btw frontend and backend.
+or middlewares ko lgane ka ek order hota hai,
+(err, req, res, next)  --> isme 4 cheeze hoti hai,
+agar apne (next) kr liya, to iska yhi mtlb hota hai ki app middleware use kr rhe ho, or khe rhe ho ab dusre middleware pe jao check krne.
+
+
+
+const asynsHandler = (func) => async (req, res, next) => {}   --> is line ka mtlb hot hai function ke ander func pass krna
+
+
+npm i mongoose-aggregate-paginate-v2     ==>    this is used for complex queries in mongodb.
+
+
+userSchema.pre("save", async function () {})     =>   pre ke ander ek callback pass krte hai per arrow func pass ni krenge kyuki uske andar "this" keyword ka use ni hoga shi se OR yha pe save ka mtlb hai save hone se phle ye kaam krdo.
+
+jwt ==> is "Bearer" token, meaning ye token jiske bhi pass hai hum usko data bej denge.
+
+
+Logic Building => jitne jyada controllers likhoge utna jyada logic build hoga.
+
+AccessToken and RefreshToken => both are same ni work but difference in expires
+
+AccessToken => are short lived
+RefreshToken => are long lived
+
+
+Production Approach => if you want to update file, to uske liye sepearate controller me rakhna hai or sepearate endpoints rakhne hai or files update ke time middleware ka dhyan rakhna hoga (multer, auth) => for file uploading and whi log update kr payenge jo logedIn ho 
+
+jb (url) se data chahiye hota hai tb req.params ka use krte hai.
+
+after aggregate pip => jo val return hoti hai wo arrays hote hai 
